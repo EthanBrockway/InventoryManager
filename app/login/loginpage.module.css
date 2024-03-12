@@ -1,0 +1,85 @@
+.section {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+}
+.h1 {
+  text-align: center;
+  margin: 60px 0px 120px 0px;
+  background-color: grey;
+  color: white;
+  font-size: 250%;
+  padding: 50px 100px;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-shadow: 1px 3px 2px black;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+.loginbox {
+  display: flex;
+  flex-direction: column;
+  padding: 35px 70px;
+  margin: 20px;
+  align-items: center;
+}
+.input {
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 40px;
+  font-size: 25px;
+}
+.link {
+  background-color: lightgray;
+  text-decoration: none;
+  padding: 15px 0px;
+  color: black;
+  width: 100%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0px 20px 30px 20px;
+}
+.link2 {
+  background-color: lightgray;
+  text-decoration: none;
+  padding: 15px 0px;
+  color: black;
+  width: 100%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .h1 {
+    margin: 80px 0px 90px 0px;
+    padding: 25px 75px;
+    max-width: 75vw;
+    font-size: 200%;
+  }
+  .input {
+    font-size: 20px;
+    max-width: 50vw;
+  }
+  .container {
+    max-width: 70vw;
+  }
+  .link {
+    min-width: 10rem;
+  }
+}
