@@ -1,29 +1,50 @@
+"use client"
 import styles from "./page.module.css"
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
 export default function Home() {
+  const MotionLink = motion(Link)
   return (
     <main className={styles.main}>
       <section className={styles.container}>
         <div className={styles.container1}>
-          <Link href="/settings" className={styles.settingsImage}>
+          <MotionLink
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            href="/settings"
+            className={styles.settingsImage}
+          >
             <Image
+              className={styles.settingsIcon}
               src="/settings.png"
               alt="Image of cog wheel"
               height="50"
               width="50"
             ></Image>
-          </Link>
+          </MotionLink>
           <h1 className={styles.h1}>Welcome "username"</h1>
-          <Link className={styles.link} href="/newStage">
+          <MotionLink
+            whileTap={{ scale: 0.9 }}
+            className={styles.link}
+            href="/newStage"
+          >
             Start new Stage
-          </Link>
-          <Link className={styles.link} href="/addFurniture">
+          </MotionLink>
+          <MotionLink
+            whileTap={{ scale: 0.9 }}
+            className={styles.link}
+            href="/addFurniture"
+          >
             Add Furniture
-          </Link>
-          <Link className={styles.link} href="/inventory">
+          </MotionLink>
+          <MotionLink
+            whileTap={{ scale: 0.9 }}
+            className={styles.link}
+            href="/inventory"
+          >
             See Available Inventory
-          </Link>
+          </MotionLink>
         </div>
         <div className={styles.container2}>Section 2</div>
       </section>
