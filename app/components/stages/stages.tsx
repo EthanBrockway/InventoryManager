@@ -4,9 +4,9 @@ export default function Stages(props: { onClick: () => void }) {
   return (
     <motion.div
       transition={{ type: "Tween" }}
-      initial={{ x: 300, opacity: 0 }}
+      initial={{ x: 200, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 300, opacity: 0 }}
+      exit={{ x: -200, opacity: 0 }}
       className={styles.container2}
     >
       <div>
