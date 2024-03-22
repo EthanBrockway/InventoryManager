@@ -8,10 +8,10 @@ export default function Options(props: { onClick: () => void }) {
   const MotionLink = motion(Link)
   return (
     <motion.div
-      transition={{ type: "Inertia" }}
+      transition={{ type: "Inertia", delay: 2 }}
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -300, opacity: 0 }}
+      exit={{ opacity: 0 }}
       className={styles.container1}
     >
       <button className={styles.btn2} onClick={props.onClick}>
