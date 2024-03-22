@@ -1,6 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: auto repeat(9, 1fr);
+
+  height: 100vh;
+}
+.mediaContainer {
+  display: none;
+  grid-template-columns: auto repeat(9, 1fr);
   height: 100vh;
 }
 .h1 {
@@ -13,11 +19,18 @@
 }
 .container1 {
   grid-column: span 4;
+
   background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.container2 {
+  grid-column: span 6;
+
+  display: grid;
+  background-color: blue;
 }
 .settingsImage {
   align-self: flex-end;
@@ -45,11 +58,14 @@
   max-height: 15%;
   min-height: 12%;
 }
-.container2 {
-  grid-column: span 6;
-  display: grid;
-  background-color: blue;
+
+.btn1 {
+  display: none;
 }
+.btn2 {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .link {
     padding: 2px;
@@ -61,8 +77,33 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .mediaContainer {
+    display: grid;
+  }
+  .container {
+    display: none;
+  }
+  .settingsImage {
+    align-self: flex-start;
+  }
+  .btn1 {
+    display: block;
+  }
+  .btn2 {
+    display: block;
+    align-self: flex-end;
+    margin: 5px 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+  }
   .container1 {
     justify-content: flex-start;
+    grid-column: span 10;
+  }
+
+  .container2 {
+    grid-column: span 10;
   }
   .link {
     font-size: 20px;
