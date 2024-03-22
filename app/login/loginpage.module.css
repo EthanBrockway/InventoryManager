@@ -27,7 +27,7 @@
 .loginbox {
   display: flex;
   flex-direction: column;
-  padding: 35px 70px;
+  padding: 20px 70px;
   margin: 20px;
   align-items: center;
 }
@@ -37,7 +37,7 @@
   border-width: 2px;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-size: 25px;
 }
 .link {
@@ -67,7 +67,7 @@
 }
 @media screen and (max-width: 768px) {
   .h1 {
-    margin: 80px 0px 90px 0px;
+    margin: 15px 0px 70px 0px;
     padding: 25px 75px;
     max-width: 75vw;
     font-size: 200%;
@@ -80,6 +80,9 @@
     max-width: 70vw;
   }
   .link {
+    min-width: 10rem;
+  }
+  .link2 {
     min-width: 10rem;
   }
 }
