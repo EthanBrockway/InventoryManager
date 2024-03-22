@@ -88,8 +88,10 @@
   }
   .btn1 {
     display: block;
+    color: black;
   }
   .btn2 {
+    color: black;
     display: block;
     align-self: flex-end;
     margin: 5px 5px;
