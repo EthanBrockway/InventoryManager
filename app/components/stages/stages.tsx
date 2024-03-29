@@ -1,5 +1,74 @@
 import styles from "../../page.module.css"
 import { motion } from "framer-motion"
+
+import leftarrow from "../../../public/left-arrow.png"
+import Image from "next/image"
+import stages from "./stages.module.css"
+import Link from "next/link"
+import { format } from "date-fns"
+
+const today = new Date()
+const yesterday = new Date(new Date().setDate(new Date().getDate() + 1))
+
+const homes: Home[] = [
+  { id: "1", title: "Beth", date: new Date(), isStaged: true },
+  {
+    id: "2",
+    title: "Steve",
+    date: yesterday,
+    isStaged: false,
+  },
+  {
+    id: "3",
+    title: "Jeffery",
+    date: today,
+    isStaged: false,
+  },
+  {
+    id: "4",
+    title: "Noah",
+    date: yesterday,
+    isStaged: false,
+  },
+  {
+    id: "5",
+    title: "Cara",
+    date: today,
+    isStaged: true,
+  },
+  {
+    id: "6",
+    title: "Ethan",
+    date: today,
+    isStaged: true,
+  },
+  {
+    id: "7",
+    title: "Rachel",
+    date: today,
+    isStaged: true,
+  },
+  {
+    id: "8",
+    title: "Martha",
+    date: today,
+    isStaged: false,
+  },
+  {
+    id: "9",
+    title: "Martha",
+    date: today,
+    isStaged: false,
+  },
+  {
+    id: "10",
+    title: "Martha",
+    date: yesterday,
+    isStaged: false,
+  },
+  { id: "11", title: "Martha", date: today, isStaged: false },
+]
+
 export default function Stages(props: { onClick: () => void }) {
   return (
     <motion.div
@@ -8,12 +77,62 @@ export default function Stages(props: { onClick: () => void }) {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -200, opacity: 0 }}
       className={styles.container2}
+      style={{ overflow: "auto" }}
     >
+      <button className={stages.backBtn} onClick={props.onClick}>
+        <Image
+          className={stages.leftarrow}
+          width="15"
+          height="15"
+          alt="image of arrow"
+          src={leftarrow}
+        ></Image>
+        Selection
+      </button>
+      <h1 className={stages.h1}>In Staging Process</h1>
       <div>
-        <button className={styles.btn1} onClick={props.onClick}>
-          Selection
-        </button>
+        {homes.map((stage, index) =>
+          stage.isStaged === false ? (
+            <div className={stages.stagedContainer}>
+              <Link
+                key={index}
+                href={{
+                  pathname: "/homes",
+                  query: {
+                    id: stage.id,
+                  },
+                }}
+                className={stages.stgbtn}
+              >
+                <p className={stages.p}>
+                  {stage.title} {format(stage.date, "MM/dd")}
+                </p>
+              </Link>
+            </div>
+          ) : null
+        )}
       </div>
+      <h1 className={stages.h1}>Staged</h1>
+
+      {homes.map((stage, index) =>
+        stage.isStaged === true ? (
+          <div className={stages.stagedContainer}>
+            <Link
+              key={index}
+              href={{
+                pathname: "/homes",
+                query: {
+                  id: stage.id,
+                },
+              }}
+              className={stages.stgbtn}
+              prefetch={false}
+            >
+              {stage.title} {format(stage.date, "MM/dd")}
+            </Link>
+          </div>
+        ) : null
+      )}
     </motion.div>
   )
 }

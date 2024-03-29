@@ -9,9 +9,10 @@
   height: 100vh;
 }
 .h1 {
+  margin: 0px;
   display: flex;
   justify-content: center;
-  font-size: 35px;
+  font-size: 48px;
   color: black;
   text-shadow: 3px 3px 3px lightgrey;
   text-align: center;
@@ -54,9 +55,6 @@
   min-height: 12%;
 }
 
-.btn1 {
-  display: none;
-}
 .btn2 {
   display: none;
 }
@@ -75,21 +73,15 @@
     display: none;
   }
 
-  .btn1 {
-    color: black;
-    display: block;
-    align-self: flex-end;
-    margin: 5px 5px;
-    background-color: transparent;
-    border: none;
-    font-size: 25px;
-  }
   .btn2 {
     color: black;
     display: block;
     align-self: flex-end;
-    margin: 5px 5px;
-    background-color: transparent;
+
+    border-radius: 0px 0px 0px 20px;
+    padding: 10px;
+    z-index: 20;
+    background-color: rgba(209, 200, 200, 0.8);
     border: none;
     font-size: 25px;
   }
@@ -102,12 +94,12 @@
     grid-column: span 10;
   }
   .link {
-    font-size: 20px;
+    font-size: 25px;
     padding: 2px;
     margin: 20px 0px 60px 0px;
   }
   .h1 {
-    font-size: 28px;
+    font-size: 40px;
     font-weight: 600;
     margin-top: 50px;
   }
@@ -117,9 +109,7 @@
     width: 40px;
     height: 40px;
   }
-  .h1 {
-    font-size: 29px;
-  }
+
   .link {
     width: 85%;
     margin: 10px 0px 50px 0px;

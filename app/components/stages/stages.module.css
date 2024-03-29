@@ -1,0 +1,55 @@
+.stgbtn {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  margin: 20px 10px;
+  border-radius: 20px;
+  border: 4px solid black;
+  background-color: grey;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  user-select: none;
+}
+.stagedContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.backBtn {
+  color: black;
+  display: none;
+  position: absolute;
+  border-radius: 0px 0px 20px 0px;
+  padding: 10px;
+  z-index: 20;
+  background-color: rgba(209, 200, 200, 0.8);
+  border: none;
+  font-size: 25px;
+}
+.h1 {
+  margin: 0;
+  margin-top: 50px;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid black;
+  justify-content: center;
+  font-size: 30px;
+  height: 60px;
+  text-shadow: 1px 3px 2px white;
+}
+.btnContainer {
+  height: 30px;
+}
+@media screen and (max-width: 768px) {
+  .backBtn {
+    display: block;
+  }
+
+  .stgbtn {
+    margin: 10px 50px;
+  }
+}

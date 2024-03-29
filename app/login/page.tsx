@@ -14,6 +14,7 @@ export default function Login() {
         style={{
           zIndex: "-1",
         }}
+        alt="background image"
         fill={true}
       ></Image>
       <section className={login.section}>
@@ -37,7 +38,7 @@ export default function Login() {
             <MotionLink
               whileTap={{ scale: 0.9 }}
               className={login.link}
-              href="/"
+              href="/homepage"
             >
               Login
             </MotionLink>

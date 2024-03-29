@@ -1,0 +1,12 @@
+.editIcon {
+  display: block;
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .editIcon {
+    display: none;
+  }
+}
