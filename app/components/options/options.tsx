@@ -26,7 +26,7 @@ export default function Options(props: { onClick: () => void }) {
       >
         <Image
           className={styles.settingsIcon}
-          src="/settings.png"
+          src="/gears.png"
           alt="Image of cog wheel"
           height="50"
           width="50"

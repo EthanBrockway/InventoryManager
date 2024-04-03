@@ -8,7 +8,7 @@ body {
 }
 body {
   margin: 0;
-  background-image: url("../public/background.jpg");
+  background-color: #0f0f0f;
 }
 
 ::-webkit-scrollbar {

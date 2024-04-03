@@ -11,4 +11,6 @@ interface Home {
   isStaged: boolean
   // furniture: Furniture[]
 }
-type Furniture = {}
+type Furniture = {
+  src: string
+}
