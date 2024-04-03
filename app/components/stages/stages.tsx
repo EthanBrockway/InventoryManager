@@ -16,19 +16,7 @@ const homes: Home[] = [
     id: "2",
     title: "Steve",
     date: yesterday,
-    isStaged: false,
-  },
-  {
-    id: "3",
-    title: "Jeffery",
-    date: today,
-    isStaged: false,
-  },
-  {
-    id: "4",
-    title: "Noah",
-    date: yesterday,
-    isStaged: false,
+    isStaged: true,
   },
   {
     id: "5",
@@ -60,12 +48,7 @@ const homes: Home[] = [
     date: today,
     isStaged: false,
   },
-  {
-    id: "10",
-    title: "Martha",
-    date: yesterday,
-    isStaged: false,
-  },
+
   { id: "11", title: "Martha", date: today, isStaged: false },
 ]
 
@@ -100,6 +83,7 @@ export default function Stages(props: { onClick: () => void }) {
                   pathname: "/homes",
                   query: {
                     id: stage.id,
+                    title: stage.title,
                   },
                 }}
                 className={stages.stgbtn}
@@ -123,6 +107,7 @@ export default function Stages(props: { onClick: () => void }) {
                 pathname: "/homes",
                 query: {
                   id: stage.id,
+                  title: stage.title,
                 },
               }}
               className={stages.stgbtn}
