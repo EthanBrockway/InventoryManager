@@ -12,7 +12,7 @@ export default function Login() {
       <Image
         src={backgroundImage}
         style={{
-          zIndex: "-1",
+          zIndex: "-2",
         }}
         alt="background image"
         fill={true}
