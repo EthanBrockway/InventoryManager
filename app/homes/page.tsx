@@ -1,48 +1,32 @@
 "use client"
+import styles from "../page.module.css"
+import { useState } from "react"
+import Options from "../components/options/options"
+import Stages from "../components/stages/stages"
+import { AnimatePresence } from "framer-motion"
 
-import home from "./homes.module.css"
-import Image from "next/image"
-
-const images: Furniture[] = [{ src: "/couch.jpg" }, { src: "/barstool.jpg" }]
-
-function Furniture({ furniture }: { furniture: any }) {
-  return (
-    <Image
-      src={furniture.src}
-      alt={furniture.src}
-      width={100}
-      height={100}
-      className={home.furniture}
-    ></Image>
-  )
-}
-export default function Homes({
-  searchParams,
-}: {
-  searchParams: {
-    id: string
-    title: string
-    date: string
+export default function HomePage() {
+  const [isActive, setButtonActive] = useState(true)
+  function toggleButton() {
+    setButtonActive((prev) => !prev)
   }
-}) {
   return (
-    <div className={home.container}>
-      <h1 className={home.h1}>
-        {searchParams.title} {searchParams.date}
-        {searchParams.id}
-      </h1>
-      <div className={home.diningContainer}>
-        <button className={home.label}>Dining room</button>
-        <div className={home.images}>
-          <ul>
-            {images.map((image, index) => (
-              <div key={index}>
-                <Furniture furniture={{ src: image.src }} />
-              </div>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+    <main className={styles.main}>
+      <section className={styles.container}>
+        <AnimatePresence initial={false}>
+          <Options onClick={() => toggleButton()} />
+          <Stages onClick={() => toggleButton()} />
+        </AnimatePresence>
+      </section>
+      <section className={styles.mediaContainer}>
+        <AnimatePresence initial={false}>
+          {isActive === true ? (
+            <Options onClick={() => toggleButton()} />
+          ) : (
+            <Stages onClick={() => toggleButton()} />
+          )}
+        </AnimatePresence>
+      </section>
+    </main>
   )
 }

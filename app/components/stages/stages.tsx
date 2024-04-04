@@ -6,12 +6,12 @@ import Image from "next/image"
 import stages from "./stages.module.css"
 import Link from "next/link"
 import { format } from "date-fns"
-
 const today = new Date()
+const currentDate = format(today, "mm/dd")
 const yesterday = new Date(new Date().setDate(new Date().getDate() + 1))
 
-const homes: Home[] = [
-  { id: "1", title: "Beth", date: new Date(), isStaged: true },
+export const homes: Home[] = [
+  { id: "1", title: "Beth", date: today, isStaged: true },
   {
     id: "2",
     title: "Steve",
@@ -41,6 +41,59 @@ const homes: Home[] = [
     title: "Martha",
     date: today,
     isStaged: false,
+    rooms: [
+      {
+        id: "1",
+        homeId: "8",
+        name: "Dining room",
+        images: [
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+        ],
+      },
+      {
+        id: "2",
+        homeId: "8",
+        name: "Living room",
+        images: [
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+          "/couch.jpg",
+        ],
+      },
+    ],
   },
   {
     id: "9",
@@ -80,11 +133,7 @@ export default function Stages(props: { onClick: () => void }) {
               <Link
                 key={index}
                 href={{
-                  pathname: "/homes",
-                  query: {
-                    id: stage.id,
-                    title: stage.title,
-                  },
+                  pathname: `/homes/${stage.id}`,
                 }}
                 className={stages.stgbtn}
               >
@@ -104,11 +153,7 @@ export default function Stages(props: { onClick: () => void }) {
             <Link
               key={index}
               href={{
-                pathname: "/homes",
-                query: {
-                  id: stage.id,
-                  title: stage.title,
-                },
+                pathname: `/homes/${stage.id}`,
               }}
               className={stages.stgbtn}
               prefetch={false}

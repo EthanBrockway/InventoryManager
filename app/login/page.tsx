@@ -12,7 +12,7 @@ export default function Login() {
       <Image
         src={backgroundImage}
         style={{
-          zIndex: "-2",
+          zIndex: "-1",
         }}
         alt="background image"
         fill={true}
@@ -38,7 +38,7 @@ export default function Login() {
             <MotionLink
               whileTap={{ scale: 0.9 }}
               className={login.link}
-              href="/homepage"
+              href="/"
             >
               Login
             </MotionLink>

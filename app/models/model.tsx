@@ -6,11 +6,17 @@ interface Home {
   // street: string
   // state: string
   // postalCode: string
-  images?: string[]
+  rooms?: Room[]
   date: Date
   isStaged: boolean
   // furniture: Furniture[]
 }
 type Furniture = {
   src: string
+}
+type Room = {
+  id: string
+  homeId: string
+  images?: string[]
+  name: string
 }
