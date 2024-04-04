@@ -38,7 +38,7 @@ export default function Login() {
             <MotionLink
               whileTap={{ scale: 0.9 }}
               className={login.link}
-              href="/homepage"
+              href="/"
             >
               Login
             </MotionLink>

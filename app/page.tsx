@@ -1,4 +1,4 @@
-import Login from "./login/page"
+import Home from "./homes/page"
 export default function StartPage() {
-  return <Login />
+  return <Home />
 }
