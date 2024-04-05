@@ -4,7 +4,7 @@ import styles from "./popup.module.css"
 import leftArrow from "../../../public/left-arrow.png"
 import rightArrow from "../../../public/right-arrow.png"
 import exitIcon from "../../../public/exitIcon.svg"
-import { useState } from "react"
+
 export default function PopUp({
   setActivePopup,
   activeHome,
@@ -33,7 +33,23 @@ export default function PopUp({
       >
         <Image src={exitIcon} alt="exit" width={28} height={28}></Image>
       </a>
-      <a className={styles.prevBtn} onClick={() => {}}>
+      <a
+        className={styles.prevBtn}
+        onClick={() => {
+          if (imageIndex <= 0) {
+            setRoomIndex(roomIndex - 1)
+            if (roomIndex < 0) {
+              setRoomIndex(rooms.length - 1)
+              setImageIndex(images.length - 1)
+            }
+          } else {
+            setImageIndex(imageIndex - 1)
+          }
+
+          console.log("imageIndex", imageIndex)
+          console.log("roomIndex", roomIndex)
+        }}
+      >
         <Image src={leftArrow} alt="left arrow" width={25} height={25}></Image>
       </a>
 
@@ -55,9 +71,8 @@ export default function PopUp({
           } else {
             setImageIndex(imageIndex + 1)
           }
-
-          console.log(rooms.length)
-          console.log(roomIndex)
+          console.log("imageIndex", imageIndex)
+          console.log("roomIndex", roomIndex)
         }}
       >
         <Image
