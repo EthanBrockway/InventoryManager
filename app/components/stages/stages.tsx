@@ -6,6 +6,7 @@ import Image from "next/image"
 import stages from "./stages.module.css"
 import Link from "next/link"
 import { format } from "date-fns"
+
 const today = new Date()
 const currentDate = format(today, "mm/dd")
 const yesterday = new Date(new Date().setDate(new Date().getDate() + 1))
@@ -23,7 +24,22 @@ export const homes: Home[] = [
     title: "Cara",
     date: today,
     isStaged: true,
+    rooms: [
+      {
+        id: "1",
+        homeId: "8",
+        name: "Dining room",
+        images: ["/couch.jpg"],
+      },
+      {
+        id: "2",
+        homeId: "8",
+        name: "Living room",
+        images: ["/couch.jpg", "/barstool.jpg"],
+      },
+    ],
   },
+
   {
     id: "6",
     title: "Ethan",
@@ -91,6 +107,7 @@ export const homes: Home[] = [
           "/couch.jpg",
           "/couch.jpg",
           "/couch.jpg",
+          "/barstool.jpg",
         ],
       },
     ],
@@ -129,9 +146,8 @@ export default function Stages(props: { onClick: () => void }) {
       <div>
         {homes.map((stage, index) =>
           stage.isStaged === false ? (
-            <div className={stages.stagedContainer}>
+            <div className={stages.stagedContainer} key={index}>
               <Link
-                key={index}
                 href={{
                   pathname: `/homes/${stage.id}`,
                 }}
@@ -149,9 +165,8 @@ export default function Stages(props: { onClick: () => void }) {
 
       {homes.map((stage, index) =>
         stage.isStaged === true ? (
-          <div className={stages.stagedContainer}>
+          <div className={stages.stagedContainer} key={index}>
             <Link
-              key={index}
               href={{
                 pathname: `/homes/${stage.id}`,
               }}

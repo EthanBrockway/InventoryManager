@@ -1,0 +1,24 @@
+.imageDiv {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.exitBtn {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.prevBtn {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+}
+.nextBtn {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  cursor: pointer;
+}

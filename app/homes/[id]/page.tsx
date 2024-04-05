@@ -5,12 +5,27 @@ import { homes } from "../../components/stages/stages"
 import { format } from "date-fns"
 import home from "../homes.module.css"
 import Furniture from "../../components/furniture/furniture"
+import PopUp from "../../components/image-popup/popup"
 export default function Component({ params }: { params: { id: string } }) {
   const activeHome = homes.find((h) => h.id === params.id)
   const [activeRooms, setActiveRooms] = useState<number[]>([])
+  const [activePopup, setActivePopup] = useState(false)
+  const [imageIndex, setImageIndex] = useState<number>(0)
+  const [roomIndex, setRoomIndex] = useState<number>(0)
   if (!activeHome) return
   return (
     <div className={home.container} style={{ overflow: "auto" }}>
+      {activePopup === true && (
+        <PopUp
+          setActivePopup={setActivePopup}
+          activeHome={activeHome}
+          setImageIndex={setImageIndex}
+          imageIndex={imageIndex}
+          setRoomIndex={setRoomIndex}
+          roomIndex={roomIndex}
+        />
+      )}
+
       <h1 className={home.h1}>
         {activeHome.title},{activeHome.id}, {format(activeHome.date, "MM/dd")}
       </h1>
@@ -32,9 +47,16 @@ export default function Component({ params }: { params: { id: string } }) {
             {activeRooms.includes(i) && (
               <div className={home.images}>
                 {room.images?.map((image, index) => (
-                  <div key={index}>
+                  <a
+                    key={index}
+                    onClick={() => {
+                      setActivePopup(!activePopup)
+                      setImageIndex(index)
+                      setRoomIndex(i)
+                    }}
+                  >
                     <Furniture furniture={{ src: image }} />
-                  </div>
+                  </a>
                 ))}
               </div>
             )}
